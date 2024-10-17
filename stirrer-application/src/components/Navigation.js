@@ -20,7 +20,7 @@ const Navigation = () => {
               Profile
             </Nav.Link>
           </Nav>
-          <Nav className="ml-auto" navbar={true}>
+          <Nav className="ml-auto">
             <LoginButton />
             <SignupButton />
           </Nav>
