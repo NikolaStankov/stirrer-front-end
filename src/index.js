@@ -9,12 +9,12 @@ import { Auth0Provider } from "@auth0/auth0-react";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Auth0Provider
-    domain="stirrer.eu.auth0.com"
+    domain={process.env.REACT_APP_AUTH0_DOMAIN}
     clientId="jQ9VYFMzozRqtSUGKGuaRfmzwSsuuWkr"
     authorizationParams={{
       redirect_uri: window.location.origin,
-      audience: "https://stirrer-api",
-      scope: "openid profile email"
+      audience: process.env.REACT_APP_AUTH0_AUDIENCE,
+      scope: "openid profile email",
     }}
   >
     <React.StrictMode>

@@ -1,9 +1,12 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./LoginButton";
-import SignupButton from "./SignupButton";
+import LogoutButton from "./LogoutButton";
 
 const Navigation = () => {
+  const { isAuthenticated } = useAuth0();
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -16,13 +19,15 @@ const Navigation = () => {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
+            <Nav.Link as={Link} to="recommendations">
+              Recommendations
+            </Nav.Link>
             <Nav.Link as={Link} to="/profile">
               Profile
             </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
-            <LoginButton />
-            <SignupButton />
+            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </Nav>
         </Navbar.Collapse>
       </Container>
